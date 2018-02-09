@@ -1,0 +1,48 @@
+/*all fonts*/
+
+@charset "utf-8";
+@font-face {
+	font-family: "Roboto Condensed Light";
+	src: url("../Fonts/RobotoCondensed-Light.ttf")
+}
+@font-face {
+	font-family: "Roboto Light";
+	src: url("../Fonts/Roboto-Light.ttf");
+}
+@font-face {
+	font-family: "Roboto Regular";
+	src: url("../Fonts/Roboto-Regular.ttf")
+}
+@font-face {
+	font-family: "Roboto Medium";
+	src: url("../Fonts/Roboto-Medium.ttf")
+}
+
+
+/*global*/
+body {
+	background-color:  rgba(143,112,72,1);
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	width:100%;
+	height:100%;
+}
+
+p {
+	font-family: "Roboto Condensed Light";
+}
+input:focus {
+	outline:none;	
+}
+
+h2 {
+	font-family: "Roboto Medium";
+	color:white;
+}
+
+
+
+
+
+
