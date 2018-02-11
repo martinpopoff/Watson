@@ -5,12 +5,11 @@
 		<title>Watson - Ученически Портал</title>
 		<link rel="stylesheet" type="text/css" href="styles/all.css">
 		<link rel="stylesheet" type="text/css" href="styles/index.css">
-		<link rel="icon" type="image/png" href="Images/Logo/icon.png">
+		<link rel="icon" type="image/png" href="images/watson_icon.png">
 		<script src="scripts/index.js"></script>
 		<script src="scripts/jquery-3.2.1.min.js"></script>
 	</head>
-	<body onload="Cycle()">
-		
+	<body>
 		<div id="menu">
 			<div id="container">
 				<img src="images/watson_logo.png" id="logo">
@@ -25,6 +24,55 @@
 		</div>
 		
 		<div class="home">
+		</div>
+		<div id="main_panel">
+			<div class="panel_title">
+				<img src="images/watson_logo.png">
+			</div>
+			
+			<div class="panel_body" id="default_panel">
+				<p class="description_title">Welcome to Watson</p>
+				<p class="description">Enjoy hundreads of papers, articles, books, lessons and many more studying materials. Use dozens of tools to make school life easier. Share and find new knowledge while also having fun.</p>
+				
+				<p class="insc_t">First time using Watson?</p><div class="insc"></div>
+				<div id="signup" onclick="AnimatePanel('signup')"><p>Sign Up</p></div>
+				
+				<p class="insc_t">Already a member?</p><div class="insc" style="margin-left:150px; width:340px;"></div>
+				<div id="login" onclick="AnimatePanel('login')"><p>Log In</p></div>
+			</div>
+			
+			<div class="panel_body" style="margin-top:-380px; margin-left:500px;" id="login_panel">
+				<p class="description_title">Log In</p>
+				<p class="description">Welcome back! What is your username and password?</p>
+				<form id="userdata" onsubmit="return Error()" method="post" name="userdata">
+					<input type="text" name="username" placeholder="Username" maxlength="32" id="username">
+					<br>
+					<input type="password" name="password" placeholder="Password" maxlength="64" id="password">
+					<input type="submit" id="login_button" value="Log In">
+				</form>
+				
+				<div id="back_button" onclick="AnimatePanel('default')"><p>Back</p></div>
+				
+				<p id="error"></p>
+			</div>
+			
+			<div class="panel_body" style="margin-top:-420px; margin-left:500px;" id="signup_panel">
+				<p class="description_title">Sign Up</p>
+				<p class="description">We are glad to have you! Tell us about yourself.</p>
+				<form id="signupdata" onsubmit="return Error()" method="post" name="signupdata" style="margin-top:10px;">
+					<input type="text" name="username" placeholder="Username" maxlength="32" id="username" style="margin-top:-20px;">
+					<input type="text" name="email" placeholder="E-mail" maxlength="64" id="password">
+					<input type="password" name="password" placeholder="Password" maxlength="64" id="password">
+					<input type="password" name="password" placeholder="Confirm Password" maxlength="64" id="password">
+					<input type="submit" id="signup_button" value="Sign Up">
+				</form>
+				
+				<div id="back_button" onclick="AnimatePanel('default')"><p>Back</p></div>
+				
+				<p id="error"></p>
+			</div>
+			
+			<p class="ps_insc">Demo @ Softuniada 2018</p>
 		</div>
 	</body>
 </html>

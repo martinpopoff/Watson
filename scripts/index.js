@@ -1,62 +1,47 @@
-//Slideshow
-var sources = ["Images/slideshow_1_mockup.jpg", "Images/slideshow_2_mockup.jpg", "Images/slideshow_3_mockup.jpg", "Images/slideshow_4_mockup.jpg" , "Images/slideshow_5_mockup.jpg"]
-var next =-1;
-var timer;
-function Cycle() {
-	//if(next%2==1) {
-		$("#slideshow").fadeOut(500, function() {
-			$("#slideshow").attr("src", sources[next]);	
-			$("#slideshow").fadeIn(500);
+var flag = 0 // 0 - default, 1 - login, 2 - signup
+
+function AnimatePanel(panel) {
+	if(panel=="login" && flag==0) {
+		flag=1;
+		$("#login_panel").animate({"margin-left":"0px"}, 500, function() {
+		
 		});
-		//$("#slideshow_overlay").css("opacity", 0.05);
-		//$("#slideshow_overlay").attr("src", sources[next]);	
-	//}
-	/*
-	else {
-		$("#slideshow").css("opacity", 0.05);
-		$("#slideshow_overlay").css("opacity", 0.);
-		$("#slideshow").attr("src", sources[next]);	
-	}*/
-	next++;
-	if(next>sources.length-1) next = 0;
-	setTimeout(function() {Cycle();}, 5000);	
+		$("#default_panel").animate({"margin-left":"-500px"}, 500, function() {
+		
+		});
+	} else if(panel=="default") {
+		flag=0;
+		$("#signup_panel").animate({"margin-left":"500px"}, 500, function() {
+		
+		});
+		$("#login_panel").animate({"margin-left":"500px"}, 500, function() {
+		
+		});
+		$("#default_panel").animate({"margin-left":"0px"}, 500, function() {
+		
+		});
+	} else if(panel=="signup") {
+		console.log("wow!");
+		flag=2;
+		$("#signup_panel").animate({"margin-left":"0px"}, 500, function() {
+		
+		});
+		$("#default_panel").animate({"margin-left":"-500px"}, 500, function() {
+		
+		});
+	}
 }
 
-jQuery(document).ready(function($) {
-    $("#result1").click(function() {
-        window.document.location = "#";
-    });
-	$(document).scroll(function() {
-    	if($(document).scrollTop()>=700) {
-			$("#menu").css("position", "fixed");
-			$("#menu").css("margin-top", "0px");
-		}
-		else {
-			$("#menu").css("position", "absolute");	
-			$("#menu").css("margin-top", "700px");
-		}
-	});
-	$("#search").keydown(function() {
-		clearTimeout(timer);
-		$(".results").fadeOut(500);
-		$("#loading").fadeIn(500);
-	});
-	$("#search").keyup(function() {
-		clearTimeout(timer);
-		timer = setTimeout(ExampleSearch, 1000);
-	});
-	$(".select_wrap div").click(function() {
-		console.log($(".select_wrap div").index(this))
-	});
-});
-
-function ExampleSearch() {
-	if($("#search").val()!="") {
-		$("#loading").fadeOut(500);
-		$(".results").fadeIn(500);
-	}
-	else {
-		$("#loading").fadeOut(500);
-		$(".results").fadeOut(500);
+function Error() {
+	var uV = document.forms["userdata"]["username"].value;
+	var pV = document.forms["userdata"]["password"].value;
+	if(uV == "") {
+		$("#error").text("Please enter a username!");
+		$("#error").show(200);
+		return false;
+	} else if(pV == "") {
+		$("#error").text("Please enter a password!");
+		$("#error").show(200);
+		return false;
 	}
 }
